@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSavePacient()" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput type="text" formControlName="name" placeholder="Pacient Name">
+      <mat-error *ngIf="form.get('name').invalid">Please enter a pacient name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="birthdate" [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('birthdate').invalid">Please enter a pacient birthdate.</mat-error>
+      </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="address" placeholder="Pacient Address">
+      <mat-error *ngIf="form.get('address').invalid">Please enter a pacient address.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="4" formControlName="condition" placeholder="Pacient Condition"></textarea>
+    </mat-form-field>
+    <div>
+      <button mat-stroked-button type="button" (click)="filePicker.click()">Pacient Image</button>
+      <input type="file" #filePicker (change)="onImagePicked($event)">
+    </div>
+    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+      <img [src]="imagePreview" [alt]="form.value.name">
+    </div>
+    <button mat-raised-button color="accent" type="submit">Save Pacient</button>
+  </form>
+</mat-card>
+

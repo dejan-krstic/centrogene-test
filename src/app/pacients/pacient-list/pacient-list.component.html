@@ -1,0 +1,42 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<form [formGroup]="form" (submit)="onSearchPacient()" *ngIf="pacients.length > 0 && !isLoading && userIsAuthenticated">
+  <mat-form-field>
+    <input matInput type="text" formControlName="searchTerm" placeholder="Search">
+    <mat-error *ngIf="form.get('searchTerm').invalid">Please enter a search term.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select formControlName="searchOption" placeholder="Option">
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="birthdate">Birthdate</mat-option>
+      <mat-option value="address">Address</mat-option>
+      <mat-option value="condition">Condition</mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('searchOption').invalid">Please enter a search option.</mat-error>
+  </mat-form-field>
+  <button mat-raised-button color="accent" type="submit">Search Pacient</button>
+</form>
+<mat-accordion *ngIf="pacients.length > 0 && !isLoading && userIsAuthenticated">
+  <mat-expansion-panel *ngFor="let pacient of pacients">
+    <mat-expansion-panel-header>
+      {{ pacient.name }}
+    </mat-expansion-panel-header>
+    <div class="flex-box">
+      <div class="pacient-image">
+        <img [src]="pacient.imagePath" [alt]="pacient.name">
+      </div>
+      <div class="align-items-stretch">
+        <p>Birthdate: {{ pacient.birthdate }}</p>
+        <p>Address: {{ pacient.address }}</p>
+        <p>Condition: {{ pacient.condition }}</p>
+      </div>
+    </div>
+    <mat-action-row *ngIf="userIsAuthenticated && userId === pacient.creator">
+      <a mat-button color="primary" [routerLink]="['/edit', pacient.id]">EDIT</a>
+      <button mat-button color="warn" (click)="onDelete(pacient.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator [length]="totalPacients" [pageSize]="pacientsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
+  *ngIf="pacients.length > 0"></mat-paginator>
+<p class="info-text mat-body-1" *ngIf="pacients.length <= 0 && !isLoading && userIsAuthenticated">No pacients available!</p>
+<p class="info-text mat-body-1" *ngIf="!userIsAuthenticated">Please login!</p>

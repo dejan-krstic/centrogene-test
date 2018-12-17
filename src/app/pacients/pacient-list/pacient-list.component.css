@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+mat-paginator {
+  margin-top: 1rem;
+}
+
+form {
+  text-align: center;
+}
+
+.info-text {
+  text-align: center;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.align-items-stretch {
+  min-height: 100%;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.pacient-image {
+  width: 50%;
+}
+
+.pacient-image img {
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
