@@ -14,8 +14,6 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./pacient-create.component.css']
 })
 export class PacientCreateComponent implements OnInit, OnDestroy {
-  // enteredName = '';
-  // enteredCondition = '';
   pacient: Pacient;
   isLoading = false;
   form: FormGroup;

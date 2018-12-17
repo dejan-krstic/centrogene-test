@@ -65,7 +65,6 @@ exports.getPacients = (req, res, next) => {
   const searchOption = req.query.searchoption;
   // const pacientQuery = Pacient.find();
   const pacientQuery = Pacient.find({[searchOption]: searchTerm });
-  console.log(req.query, pageSize)
   let fetchedPacients;
   if (pageSize && currentPage) {
     pacientQuery.skip(pageSize * (currentPage - 1)).limit(pageSize);
@@ -108,7 +107,6 @@ exports.getPacient = (req, res, next) => {
 exports.deletePacient = (req, res, next) => {
   Pacient.deleteOne({ _id: req.params.id, creator: req.userData.userId })
     .then(result => {
-      console.log(result);
       if (result.n > 0) {
         res.status(200).json({ message: "Deletion successful!" });
       } else {
