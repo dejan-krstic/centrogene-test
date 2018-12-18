@@ -1,5 +1,5 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<form [formGroup]="form" (submit)="onSearchPacient()" *ngIf="pacients.length > 0 && !isLoading && userIsAuthenticated">
+<form [formGroup]="form" (submit)="onSearchPacient($event)" *ngIf="pacients.length > 0 && !isLoading && userIsAuthenticated">
   <mat-form-field>
     <input matInput type="text" formControlName="searchTerm" placeholder="Search">
     <mat-error *ngIf="form.get('searchTerm').invalid">Please enter a search term.</mat-error>
@@ -13,7 +13,8 @@
     </mat-select>
     <mat-error *ngIf="form.get('searchOption').invalid">Please enter a search option.</mat-error>
   </mat-form-field>
-  <button mat-raised-button color="accent" type="submit">Search Pacient</button>
+  <button mat-raised-button color="accent" type="submit" class="ml-1">Search Pacient</button>
+  <button mat-raised-button color="primary" type="submit" class="ml-1" (click)="onClearSearch()">Clear Search</button>
 </form>
 <mat-accordion *ngIf="pacients.length > 0 && !isLoading && userIsAuthenticated">
   <mat-expansion-panel *ngFor="let pacient of pacients">
@@ -32,11 +33,11 @@
     </div>
     <mat-action-row *ngIf="userIsAuthenticated && userId === pacient.creator">
       <a mat-button color="primary" [routerLink]="['/edit', pacient.id]">EDIT</a>
-      <button mat-button color="warn" (click)="onDelete(pacient.id)">DELETE</button>
+      <button mat-button color="warn" (click)="onOpenDialog(pacient.id)">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
 <mat-paginator [length]="totalPacients" [pageSize]="pacientsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
-  *ngIf="pacients.length > 0"></mat-paginator>
+  *ngIf="pacients.length > 0 && !isLoading && userIsAuthenticated"></mat-paginator>
 <p class="info-text mat-body-1" *ngIf="pacients.length <= 0 && !isLoading && userIsAuthenticated">No pacients available!</p>
 <p class="info-text mat-body-1" *ngIf="!userIsAuthenticated">Please login!</p>

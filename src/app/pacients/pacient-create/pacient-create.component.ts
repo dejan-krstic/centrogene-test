@@ -118,6 +118,10 @@ export class PacientCreateComponent implements OnInit, OnDestroy {
     this.form.reset();
   }
 
+  onClearForm() {
+    this.form.reset();
+  }
+
   ngOnDestroy() {
     this.authStatusSub.unsubscribe();
   }

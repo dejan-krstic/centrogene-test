@@ -11,6 +11,7 @@ import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { PacientsModule } from './pacients/pacients.module';
+import { ConfirmDialogComponent } from './pacients/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,9 @@ import { PacientsModule } from './pacients/pacients.module';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ErrorComponent]
+  entryComponents: [
+    ErrorComponent,
+    ConfirmDialogComponent
+  ]
 })
 export class AppModule {}

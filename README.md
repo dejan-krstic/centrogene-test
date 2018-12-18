@@ -18,12 +18,10 @@ Mora da postoji mogucnost da se pacijent izbrise iz sistema, uzeti u obzir da je
 Frontend -  Primarno treba koristiti ili cist Java Script ili, jos bolje, neku od vezija Angulara (AngularJS ili noviji). Ako ovo nije moguce moze se koristiti neki drugi framework JS-a. 
 Backend - Moze se koristiti bilo koji jezik, Java, PHP, NodeJS, Python itd. Sami ste izrazili zelju da radite u NodeJS i to je odlican predlog.
 DataBase - Iako se preferira upotreba SQL tipa baze podataka iz razloga koji ce biti naveden u nastavku, moze se koristiti bilo koji tip baze za cuvanje podataka, SQL ili NoSQL.
-### Dodatno
 
+### Dodatno
 Kao veliki plus u izradi zadatka ce se smatrati sledece funkcionalnosti aplikacije:
 
-### Napomena: 
-Svaka od ovih stavki se moze ispuniti ili potpuno ili delimicno, bitno je postoji neko realno poboljsanje u radu same aplikacije.
 Sami podaci korisnika aplikacije se nakon logovanja moraju proveriti radi validacije. Podaci o korisnicima (Doktorima ili medic. osoblju) se mogu cuvatu na razne nacije: u sklopu samo servisa u nekoj programskoj strukturi, u sklopu fajla na fajl sistemu racunara i sl. Pozeljno je da se i njihovi podacu cuvaju u samoj bazi.
 Svaki pacijent moze imati neko oboljenje vezano za njega, unos ovog oboljena se moze ostaviti kao opcija na formi za unos samog pacijneta. Ako oboljenje nije uneto pri inicijalnom unosu pacijenta u sistem ono se moze uneti naknadno nakon pregleda svih podatka pacijenta.
 Kao i samo oboljenje, svaki od podatka koji su uneti za pacijenta se moze promeniti odnosno updejtovati, radi azuriranja. Omoguciti ovo pri pregledu detaljih podataka o samom pacijentu.
@@ -31,6 +29,8 @@ Samo oboljenje se kao tip podatka moze cuvati u posebnoj tabeli koja na adekvata
 Ako se oboljenja cuvaju u posebnoj strukturi (tabeli) omoguciti njihov unos u sistem preko aplikacije, fokusirati se na funkcionalnost, na izgled, samo u potrebnoj meri.
 Svako dodatno stilsko usavrsavanja koje doprinosi samom "user experience-u" je dobrodoslo.
 
+### Napomena: 
+Svaka od ovih stavki se moze ispuniti ili potpuno ili delimicno, bitno je postoji neko realno poboljsanje u radu same aplikacije.
 Ne ustrucavajte se da nas kontaktirate u vezi bilo kakvih pitanja vezanih za samu postavku zadatka ili o firmi.
 
 Srecno u radu! 

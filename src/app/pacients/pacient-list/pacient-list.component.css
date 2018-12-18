@@ -35,6 +35,10 @@ form {
   width: 50%;
 }
 
+.ml-1 {
+  margin-left: 5px;
+}
+
 .pacient-image img {
   width: 100%;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);

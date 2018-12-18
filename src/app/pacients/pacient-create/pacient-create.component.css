@@ -20,6 +20,15 @@ input[type="file"] {
   height: 100%;
 }
 
+.float-right {
+  float: right;
+}
+
+.d-inline-block {
+  display: inline-block;
+
+}
+
 button {
   margin-top: 1rem;
 }

@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { PageEvent } from '@angular/material';
+import { PageEvent, MatDialog } from '@angular/material';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { Pacient } from '../pacient.model';
 import { PacientsService } from '../pacients.service';
 import { AuthService } from '../../auth/auth.service';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-pacient-list',
@@ -27,7 +28,8 @@ export class PacientListComponent implements OnInit, OnDestroy {
 
   constructor(
     public pacientsService: PacientsService,
-    private authService: AuthService
+    private authService: AuthService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -75,17 +77,36 @@ export class PacientListComponent implements OnInit, OnDestroy {
   }
 
   onSearchPacient() {
-      if (this.form.invalid) {
-        return;
+    if (this.form.invalid) {
+      return;
+    }
+    this.isLoading = true;
+    this.pacientsService.getPacients(
+      this.pacientsPerPage,
+      this.currentPage,
+      this.form.value.searchTerm,
+      this.form.value.searchOption
+    );
+    this.form.reset();
+  }
+
+  onClearSearch() {
+    this.form.reset();
+    this.isLoading = true;
+    this.pacientsService.getPacients(
+      this.pacientsPerPage,
+      this.currentPage
+    );
+  }
+
+  onOpenDialog(pacientId: string): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.onDelete(pacientId);
       }
-      this.isLoading = true;
-      this.pacientsService.getPacients(
-        this.pacientsPerPage,
-        this.currentPage,
-        this.form.value.searchTerm,
-        this.form.value.searchOption
-      );
-      this.form.reset();
+    });
   }
 
   ngOnDestroy() {

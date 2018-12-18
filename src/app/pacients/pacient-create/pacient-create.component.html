@@ -25,7 +25,8 @@
     <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
       <img [src]="imagePreview" [alt]="form.value.name">
     </div>
-    <button mat-raised-button color="accent" type="submit">Save Pacient</button>
+      <button mat-raised-button color="accent" type="submit">Save Pacient</button>
+      <button mat-raised-button color="primary" class="float-right" routerLink="/" (click)="onClearForm()">Cancel</button>
   </form>
 </mat-card>
 
