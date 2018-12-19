@@ -10,7 +10,7 @@ Aplikacija treba da sadrzi, kao minimum, stranu za login samog korisnika i osnov
 prikaz svih pacijenata koji su vec uneti od strane korisnika.
 unos kljucne reci naspram koje ce se pretraziti i prikazati svi pacijenti, kljucna rec treba da se trazi u imenu samog pacijenta ali bi ta pretraga mogla da se prosiri i na neke druge njegove podatke.
 mogucnost otvaranja forme za unos novih pacijenata (ova forma moze da se nalazi na posebnoj stranici). 
-Forma za unos pacijenata mora imati, pored ostalih bazicnih podataka o samom pacijentu, opciju za unos slika (samog pacijenta i dr.) kao i dodatnih fajlova u pdf, word i sl. formatu.
+Forma za unos pacijenata mora imati, pored ostalih bazicnih podataka o samom pacijentu, opciju za unos slika (samog pacijenta)
 Pacijenti na glavnoj strani treba da su prikazani samo sa osnovnim, licnim informacijama (ime, prezime, godine) kao i sa slikom ako je ona uneta. Klikom na osnovni prikaz nekog pacijenta korisnik aplikacije treba da se preusmeri ili na drugu stranicu ili da se otvori poseban pop-up prikaz svih njegovih podataka.
 Mora da postoji mogucnost da se pacijent izbrise iz sistema, uzeti u obzir da je ovo nepovratna operacija i stoga je to potrebno posebno naglasiti korisniku.
 
@@ -23,10 +23,7 @@ DataBase - Iako se preferira upotreba SQL tipa baze podataka iz razloga koji ce 
 Kao veliki plus u izradi zadatka ce se smatrati sledece funkcionalnosti aplikacije:
 
 Sami podaci korisnika aplikacije se nakon logovanja moraju proveriti radi validacije. Podaci o korisnicima (Doktorima ili medic. osoblju) se mogu cuvatu na razne nacije: u sklopu samo servisa u nekoj programskoj strukturi, u sklopu fajla na fajl sistemu racunara i sl. Pozeljno je da se i njihovi podacu cuvaju u samoj bazi.
-Svaki pacijent moze imati neko oboljenje vezano za njega, unos ovog oboljena se moze ostaviti kao opcija na formi za unos samog pacijneta. Ako oboljenje nije uneto pri inicijalnom unosu pacijenta u sistem ono se moze uneti naknadno nakon pregleda svih podatka pacijenta.
-Kao i samo oboljenje, svaki od podatka koji su uneti za pacijenta se moze promeniti odnosno updejtovati, radi azuriranja. Omoguciti ovo pri pregledu detaljih podataka o samom pacijentu.
-Samo oboljenje se kao tip podatka moze cuvati u posebnoj tabeli koja na adekvatan nacin treba biti spojena sa tabelom u kojoj se cuvaju sami pacijenti. Imati u vidu da vise pacijenata moze imati jedno oboljenje.
-Ako se oboljenja cuvaju u posebnoj strukturi (tabeli) omoguciti njihov unos u sistem preko aplikacije, fokusirati se na funkcionalnost, na izgled, samo u potrebnoj meri.
+Svaki pacijent moze imati neko oboljenje vezano za njega, unos ovog oboljena se moze ostaviti kao opcija na formi za unos samog pacijneta. Ako oboljenje nije uneto pri inicijalnom unosu pacijenta u sistem ono se moze uneti kasnije.
 Svako dodatno stilsko usavrsavanja koje doprinosi samom "user experience-u" je dobrodoslo.
 
 ### Napomena: 
